@@ -18,16 +18,14 @@ const Signup = () => {
       lastname,
       email,
       password,
-    }).then(response=>
-        {
-          if(response.data.status)
-          {
-            navigate("/login")
-          }
-        }).catch(err=>
-            {
-                console.log(err)
-            })
+    }).then(response => {
+      if (response.data && response.data.status) {
+        navigate("/login");
+      }
+      console.log(response);
+    }).catch(err => {
+      console.log(err);
+    });
   };
 
   return (

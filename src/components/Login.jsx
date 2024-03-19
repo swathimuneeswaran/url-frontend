@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../App.css";
-import Axios from "axios";
+import axios from "axios";
 // import toast from 'react-hot-toast';
 import { useNavigate, Link } from "react-router-dom";
 
@@ -10,12 +10,12 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  Axios.defaults.withCredentials = true;
+  axios.defaults.withCredentials = true;
   const handleSubmit = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:3000/auth/login", {
-      email: email,
-      password: password,
+    axios.post("http://localhost:3000/auth/login", {
+      email,
+      password,
     })
       .then((response) => {
         if (response.data.status) {
