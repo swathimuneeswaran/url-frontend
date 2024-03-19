@@ -43,7 +43,7 @@ const ResetPassword = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
     
-              <button type="submit">Reset</button>
+              <button type="submit" style={{marginTop:"30px",marginLeft:"60px",borderRadius:"30px"}}>Reset</button>
                 
             </form>
           </div>
