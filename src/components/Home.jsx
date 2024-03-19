@@ -9,6 +9,7 @@ const Home = () => {
   const [message, setMessage] = useState("");
   const [urls, setUrls] = useState([]);
   const navigate = useNavigate();
+  const baseurl="https://url-backend-1.onrender.com"
 
   useEffect(() => {
     fetchUrls();
@@ -17,7 +18,7 @@ const Home = () => {
   const fetchUrls = async () => {
     try {
       const response = await Axios.get(
-        "http://localhost:3000/auth/url-shortener"
+        `${baseurl}/auth/url-shortener`
       );
       console.log(response.data); // Check the response data structure
       setUrls(response.data.urlResult);
@@ -29,7 +30,7 @@ const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    Axios.post(`http://localhost:3000/auth/url-shortener`, {
+    Axios.post(`${baseurl}/auth/url-shortener`, {
       longUrl,
     })
       .then((response) => {
@@ -45,7 +46,7 @@ const Home = () => {
 
   const handleRedirect = async (shortUrl) => {
     try {
-      const response = await Axios.get(`http://localhost:3000/auth/api/${shortUrl}`);
+      const response = await Axios.get(`${baseurl}/auth/api/${shortUrl}`);
       window.location.href = response.data.redirectUrl; // Redirect to the long URL
     } catch (error) {
       console.error("Error redirecting:", error);
@@ -54,7 +55,7 @@ const Home = () => {
 
   const handleDelete = async (_id) => {
     try {
-      const response = await Axios.delete(`http://localhost:3000/auth/api/delete/${_id}`);
+      const response = await Axios.delete(`${baseurl}/auth/api/delete/${_id}`);
       console.log(response.data);
       return response.data;
     } catch (error) {
@@ -97,7 +98,7 @@ const Home = () => {
                     <li>
                       Shortened Url:{" "}
                       <button style={{marginTop:"30px",textDecoration:"none",width:"100%",borderRadius:"20px"}} onClick={() => handleRedirect(url.shortUrl)}>
-                        http://localhost:3000/{url.shortUrl}
+                        ${baseurl}/{url.shortUrl}
                       </button><br></br>
                     <button onClick ={()=> handleDelete(url._id)} style={{marginTop:"20px",textDecoration:"none",width:"60%",borderRadius:"20px",backgroundColor:"red"}}>Remove</button>
                     </li>

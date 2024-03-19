@@ -7,13 +7,13 @@ import { useNavigate, Link } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const baseurl="https://url-backend-1.onrender.com"
   const navigate = useNavigate();
 
   axios.defaults.withCredentials = true;
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:3000/auth/login", {
+    axios.post(`${baseurl}/auth/login`, {
       email,
       password,
     })

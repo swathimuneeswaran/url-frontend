@@ -8,11 +8,13 @@ const ForgotPassword = () => {
     const [email, setEmail] = useState("");
     const navigate = useNavigate();
 
+    const baseurl="https://url-backend-1.onrender.com"
+
                
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        Axios.post("http://localhost:3000/auth/forgot-password", {
+        Axios.post(`${baseurl}/auth/forgot-password`, {
             email,
         })
             .then((response) => {

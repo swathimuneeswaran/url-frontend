@@ -8,12 +8,13 @@ const ResetPassword = () => {
    
     const [password, setPassword] = useState("");
     const {token}=useParams()
+    const baseurl="https://url-backend-1.onrender.com"
     
     const navigate=useNavigate()
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      Axios.post(`http://localhost:3000/auth/reset-password/${token}`, {
+      Axios.post(`${baseurl}/auth/reset-password/${token}`, {
        
        password
 
