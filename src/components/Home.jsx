@@ -9,7 +9,7 @@ const Home = () => {
   const [message, setMessage] = useState("");
   const [urls, setUrls] = useState([]);
   const navigate = useNavigate();
-  const baseurl="https://url-backend-1.onrender.com"
+  const baseurl="https://shorten-url-620c.onrender.com"
 
   useEffect(() => {
     fetchUrls();

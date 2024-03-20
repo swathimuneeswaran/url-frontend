@@ -8,7 +8,7 @@ const ResetPassword = () => {
    
     const [password, setPassword] = useState("");
     const {token}=useParams()
-    const baseurl="https://url-backend-1.onrender.com"
+    const baseurl="https://shorten-url-620c.onrender.com"
     
     const navigate=useNavigate()
   

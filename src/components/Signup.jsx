@@ -8,13 +8,13 @@ const Signup = () => {
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const baseurl="https://url-backend-1.onrender.com"
+  const baseurl="https://shorten-url-620c.onrender.com"
 
   const navigate=useNavigate()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    Axios.post(`${baseurl}/auth/signup`, {
+    await Axios.post(`${baseurl}/auth/signup`, {
       firstname,
       lastname,
       email,
